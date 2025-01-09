@@ -12,7 +12,7 @@ class AuthController extends Controller
 {
  
     /**
-     * Register a User.
+     * Registra o usuário.
      *
      * @return \Illuminate\Http\JsonResponse
      */
@@ -27,7 +27,7 @@ class AuthController extends Controller
      
             return response()->json($user, 201);
         } catch (\Exception $e) {
-            return response()->json(['error' => 'Failed to create user'], 500);
+            return response()->json(['error' => 'Falha ao criar usuário'], 500);
         }
     }    
   
@@ -42,14 +42,14 @@ class AuthController extends Controller
         $credentials = $request->only('email', 'password');
     
         if (!$token = auth()->attempt($credentials)) {
-            return response()->json(['error' => 'Invalid email or password.'], 401);
+            return response()->json(['error' => 'Email ou senha inválidos.'], 401);
         }
     
         return $this->respondWithToken($token);
     }
   
     /**
-     * Get the authenticated User.
+     * Obtendo a autenticação do usuário.
      *
      * @return \Illuminate\Http\JsonResponse
      */
@@ -59,7 +59,7 @@ class AuthController extends Controller
     }
   
     /**
-     * Log the user out (Invalidate the token).
+     * Logout do usuário e invalida o token.
      *
      * @return \Illuminate\Http\JsonResponse
      */
@@ -67,11 +67,11 @@ class AuthController extends Controller
     {
         auth()->logout();
   
-        return response()->json(['message' => 'Successfully logged out']);
+        return response()->json(['message' => 'Logout feito com sucesso']);
     }
   
     /**
-     * Refresh a token.
+     * Atualização do token.
      *
      * @return \Illuminate\Http\JsonResponse
      */
@@ -81,7 +81,7 @@ class AuthController extends Controller
     }
   
     /**
-     * Get the token array structure.
+     * Estrutura do token.
      *
      * @param  string $token
      *

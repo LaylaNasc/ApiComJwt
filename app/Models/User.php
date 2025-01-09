@@ -46,7 +46,7 @@ class User extends Authenticatable implements JWTSubject
     }
  
     /**
-     * Get the identifier that will be stored in the subject claim of the JWT.
+     * Obtém o identificador que será armazenado na reivindicação "subject" do JWT.
      *
      * @return mixed
      */
@@ -56,7 +56,7 @@ class User extends Authenticatable implements JWTSubject
     }
  
     /**
-     * Return a key value array, containing any custom claims to be added to the JWT.
+     * Retorna um array de pares chave-valor contendo quaisquer reivindicações personalizadas para o JWT.
      *
      * @return array
      */
